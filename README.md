@@ -50,12 +50,14 @@ npm
 루트 디렉토리에 `.env.local` 파일을 생성하고 아래 키를 입력하세요.
 
 ```env
+NEXT_PUBLIC_DOMAIN_URL='http://localhost:3000'
+
 # 단기 예보 API 설정
 NEXT_PUBLIC_SHORT_WEATHER_BASE_URL'https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0'
 SHORT_WEATHER_FORECAST=당신의_기상청_공공데이터_단기예보_디코딩_키
 
 # 중기 예보 API 설정
-NEXT_PUBLIC_MIDDLE_WEATHER_BASE_URL='https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0'
+NEXT_PUBLIC_MIDDLE_WEATHER_BASE_URL='https://apis.data.go.kr/1360000/MidFcstInfoService'
 MIDDLE_WEATHER_FORECAST=당신의_기상청_공공데이터_중기예보_디코딩_키
 
 # AI API 설정
