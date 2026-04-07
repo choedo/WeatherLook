@@ -22,9 +22,29 @@ import WeeklyLifeGuideWidgetSkeleton from '@/app/(main)/[city]/weekly/_component
 import WeeklyLifeGuideWidgetContainer from '@/app/(main)/[city]/weekly/_components/weekly-life-guide-widget/weekly-life-guide-widget-container';
 import WeeklyDetailWidgetContainer from '@/app/(main)/[city]/weekly/_components/weekly-detail-widget/weekly-detail-widget-container';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ city: City }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { city } = await params;
+  const region = REGIONS[city];
+
+  if (!region) return { title: 'Not Found' };
+
+  const cityName = region.name;
+
+  return {
+    title: `${cityName} 주간 날씨 예보`,
+    description: `향후 10일간의 ${cityName} 날씨, 기온 추이, 강수 확률을 한눈에 확인하세요. 이번 주말 외출 계획과 주간 라이프 가이드를 제공합니다.`,
+    openGraph: {
+      title: `${cityName} 주간 날씨 예보 | Weather Look`,
+      description: `이번 주 ${cityName} 날씨는 어떨까요? 주간 기온 변화와 비 소식을 미리 확인하세요.`,
+      url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/${city}/weekly`,
+    },
+  };
 }
 
 export default async function WeeklyPage({ params }: Props) {

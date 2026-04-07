@@ -14,8 +14,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Weather Look',
-  description: '날씨에 어울리는 패션과 활동을 추천해주는 웹 서비스',
+  title: {
+    template: '%s | Weather Look',
+    default: 'Weather Look - AI 맞춤 코디 날씨',
+  },
+  description:
+    '기상청 정밀 날씨 데이터와 AI를 활용한 오늘의 옷차림 및 라이프 가이드',
+  openGraph: {
+    title: 'Weather Look',
+    description: '오늘 뭐 입지? 날씨에 맞는 완벽한 코디를 추천해 드립니다.',
+    siteName: 'Weather Look',
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

@@ -16,9 +16,29 @@ import TitleWidgetContainer from '@/components/layout/title-widget-container';
 import { CITIES } from '@/constants/city';
 import { REGIONS } from '@/constants/regions';
 import { City } from '@/types/city';
+import { Metadata } from 'next';
 
 interface Props {
   params: Promise<{ city: City }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { city } = await params;
+  const region = REGIONS[city];
+
+  if (!region) return { title: 'Not Found' };
+
+  const cityName = region.name;
+
+  return {
+    title: `${cityName} 오늘 날씨 및 AI 코디 추천`,
+    description: `현재 ${cityName}의 기온, 습도, 강수 확률을 확인하고, 날씨에 딱 맞는 옷차림과 라이프 가이드를 받아보세요.`,
+    openGraph: {
+      title: `${cityName} 오늘 날씨 & 코디 | Weather Look`,
+      description: `오늘 ${cityName} 날씨 어때요? 우산 챙겨야 할까요? 체감 날씨에 맞춘 AI 코디를 확인하세요.`,
+      url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/${city}`,
+    },
+  };
 }
 
 export default async function CityPage({ params }: Props) {
