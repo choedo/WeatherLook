@@ -44,8 +44,8 @@ export default function WeeklyTemperatureChartWidget({ city, nx, ny }: Props) {
         'w-full rounded-2xl shadow-xl bg-white pt-8 pb-4 px-4 grid grid-cols-12'
       }
     >
-      <div className={'col-span-5 flex flex-col gap-2'}>
-        <h6 className={'text-xl font-bold'}>기온 추이</h6>
+      <div className={'col-span-12 md:col-span-5 flex flex-col gap-2'}>
+        <h6 className={'text-lg md:text-xl font-bold'}>기온 추이</h6>
         <AsyncBoundary
           fallback={
             <div className={'w-full h-full flex justify-center items-center'}>
@@ -66,7 +66,7 @@ export default function WeeklyTemperatureChartWidget({ city, nx, ny }: Props) {
           />
         </AsyncBoundary>
       </div>
-      <div className={'col-span-7 min-w-0 h-40 relative'}>
+      <div className={'col-span-12 md:col-span-7 min-w-0 h-40 relative'}>
         <WeeklyTemperatureChart data={averageWeeklyTemperature} />
       </div>
     </div>

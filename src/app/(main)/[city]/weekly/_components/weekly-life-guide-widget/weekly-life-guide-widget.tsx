@@ -31,8 +31,12 @@ export default function WeeklyLifeGuideWidget({ forecast, city }: Props) {
               {icon}
             </div>
             <div className={'flex flex-col gap-1'}>
-              <h6 className={'text-md font-bold'}>{title}</h6>
-              <p className={'text-sm text-(--deep-text-sky) break-keep'}>
+              <h6 className={'text-sm md:text-md font-bold'}>{title}</h6>
+              <p
+                className={
+                  'text-xs md:text-sm text-(--deep-text-sky) break-keep'
+                }
+              >
                 {content}
               </p>
             </div>

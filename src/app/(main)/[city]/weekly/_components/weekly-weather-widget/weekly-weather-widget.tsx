@@ -45,40 +45,50 @@ export default function WeeklyWeatherWidget({ city, nx, ny }: Props) {
               key={`weekly-day-${day}`}
               className={`
               flex flex-col items-center justify-center gap-4
-              px-10 py-4 
+              px-8 lg:px-10 py-4 
               ${String(selected) === day ? 'bg-white' : 'bg-(--azure-sky-600)/10'}
               rounded-2xl shadow-xl
               cursor-pointer
               `}
               onClick={() => setSelected(Number(day))}
             >
-              <p className={'text-xs text-(--deep-text-sky) font-bold'}>
+              <p
+                className={
+                  'text-[.6rem] md:text-xs text-(--deep-text-sky) font-bold'
+                }
+              >
                 {isTomorrow ? '내일' : DAY_OF_THE_WEEK[date.day()]}
               </p>
 
               <div className={'text-center'}>
                 <p
                   className={
-                    'font-extrabold text-(--deep-text-slate) leading-2'
+                    'text-sm md:text-md font-extrabold text-(--deep-text-slate) leading-2'
                   }
                 >
                   {date.format('M월D일')}
                 </p>
                 {isTomorrow ? (
-                  <small className={'text-xs text-(--deep-text-sky)'}>
+                  <small
+                    className={'text-[.6rem] md:text-xs text-(--deep-text-sky)'}
+                  >
                     {DAY_OF_THE_WEEK[date.day()]}
                   </small>
                 ) : null}
               </div>
 
-              <WeatherIcon type={weather.sky} size={32} colorFull />
+              <WeatherIcon
+                type={weather.sky}
+                className={'w-6 h-6 md:w-8 md:h-8'}
+                colorFull
+              />
 
               <div className={'flex gap-2 text-lg'}>
-                <p className={'font-bold'}>
+                <p className={'font-bold text-sm md:text-md'}>
                   {weather.maxTemp || '-'}
                   {WEATHER_CATEGORIES.T1H.unit}
                 </p>
-                <p className={'font-light'}>
+                <p className={'font-light text-sm md:text-md'}>
                   {weather.minTemp || '-'}
                   {WEATHER_CATEGORIES.T1H.unit}
                 </p>

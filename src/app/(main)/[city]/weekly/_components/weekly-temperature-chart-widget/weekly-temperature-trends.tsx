@@ -14,5 +14,7 @@ export default function WeeklyTemperatureTrends(props: {
 
   const trends = data.replace('\n\n', '\n');
 
-  return <Pre className={'text-md text-(--azure-sky-700)'}>{trends}</Pre>;
+  return (
+    <Pre className={'text-sm md:text-md text-(--azure-sky-700)'}>{trends}</Pre>
+  );
 }

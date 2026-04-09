@@ -55,19 +55,25 @@ export default async function WeeklyPage({ params }: Props) {
   const region = REGIONS[city as City];
 
   return (
-    <div className={'grid grid-cols-12 gap-6 max-w-7xl'}>
+    <div className={'grid grid-cols-12 gap-6'}>
       <div className={'col-span-12 flex flex-col gap-4'}>
         <div className={'flex items-end justify-between'}>
           <div className={'flex items-center gap-2'}>
             <Link href={`/${city}`} className={'cursor-pointer'}>
-              <ChevronLeftIcon size={32} />
+              <ChevronLeftIcon className={'w-6 h-6 md:w-8 md:h-8'} />
             </Link>
 
             <div>
-              <p className={'text-xs text-(--azure-sky-600) font-bold'}>
+              <p
+                className={
+                  'text-[.6rem] md:text-xs text-(--azure-sky-600) font-bold'
+                }
+              >
                 ATMOSPHERIC INSIGHT
               </p>
-              <h2 className={'text-4xl font-extrabold'}>주간 예보</h2>
+              <h2 className={'text-3xl md:text-4xl font-extrabold'}>
+                주간 예보
+              </h2>
             </div>
           </div>
           <AsyncBoundary
@@ -112,14 +118,14 @@ export default async function WeeklyPage({ params }: Props) {
         </AsyncBoundary>
       </div>
 
-      <div className={'col-span-8'}>
+      <div className={'col-span-12 lg:col-span-8'}>
         <WeeklyDetailWidgetContainer
           city={city}
           nx={region.nx}
           ny={region.ny}
         />
       </div>
-      <div className={'col-span-4'}>
+      <div className={'col-span-12 lg:col-span-4'}>
         <TitleWidgetContainer title={'주간 라이프 가이드'}>
           <AsyncBoundary
             fallback={<WeeklyLifeGuideWidgetSkeleton />}

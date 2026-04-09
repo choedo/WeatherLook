@@ -1,3 +1,4 @@
+import { useDeviceType } from '@/hooks/useDeviceType';
 import { BarChart, Bar, ResponsiveContainer, Cell } from 'recharts';
 
 export type WeeklyTemperatureChartData = { date: string; temp: number };
@@ -7,7 +8,10 @@ export default function WeeklyTemperatureChart({
 }: {
   data: WeeklyTemperatureChartData[];
 }) {
-  const sliceData = data.slice(0, 7);
+  const device = useDeviceType();
+
+  const slice = device === 'tablet' ? 5 : 7;
+  const sliceData = data.slice(0, slice);
 
   const colors = [
     '#E5F2FF',
@@ -22,8 +26,12 @@ export default function WeeklyTemperatureChart({
   return (
     <ResponsiveContainer width={'99%'} height={'100%'}>
       <BarChart data={sliceData}>
-        <Bar dataKey={'temp'} radius={[24, 24, 0, 0]} barSize={`${100 / 7}%`}>
-          {new Array(7).fill(null).map((_, index) => (
+        <Bar
+          dataKey={'temp'}
+          radius={[24, 24, 0, 0]}
+          barSize={`${100 / slice}%`}
+        >
+          {new Array(slice).fill(null).map((_, index) => (
             <Cell key={`cell-${index}`} fill={colors[index]} />
           ))}
         </Bar>
