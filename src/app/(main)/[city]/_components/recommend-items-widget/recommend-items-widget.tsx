@@ -45,7 +45,7 @@ export default function RecommendItemsWidget({
       </div>
       <ul className={'flex flex-col gap-4'}>
         {recommendItems.map((recommend) => {
-          const [item, icon] = recommend.split(' ');
+          const [icon, item] = recommend.split(' ');
           return (
             <li
               key={item}
