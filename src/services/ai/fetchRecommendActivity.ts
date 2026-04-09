@@ -7,7 +7,10 @@ export async function fetchRecommendActivity(weatherInfo: string) {
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
-    contents: `${weatherInfo} 날씨에 어울리는 활동 추천해줘. 타이틀, 내용 형식으로 간단 명료하게 하나만 알려줘.`,
+    contents: `
+    ${weatherInfo} 날씨에 어울리는 활동 추천해줘. 
+    타이틀, 내용 형식으로 간단 명료하게 하나만 알려주고 [타이틀]\n내용 형식으로 알려줘.
+    `,
   });
 
   return response.text;

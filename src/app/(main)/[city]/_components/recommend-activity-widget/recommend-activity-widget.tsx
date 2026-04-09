@@ -29,11 +29,11 @@ export default function RecommendActivityWidget({
   const recommendActivity = React.useMemo(() => {
     if (!data) return { title: '', content: '' };
 
-    const [_, title, content] = data
-      .replace('[', '*')
-      .replace(']', '*')
-      .replaceAll('\n', '')
-      .split('***');
+    const [title, content] = data
+      .replace('[', '')
+      .replace(']', '')
+      .replaceAll('\n', '**')
+      .split('**');
 
     return { title, content };
   }, [data]);
