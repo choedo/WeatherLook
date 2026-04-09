@@ -16,7 +16,7 @@ export default function Title({
   return (
     <div className={'flex justify-between items-center gap-4'}>
       <h4
-        className={`text-(--azure-sky-700) text-2xl font-bold ${className ? className : ''}`}
+        className={`text-(--azure-sky-700) text-lg md:text-xl lg:text-2xl font-bold ${className ? className : ''}`}
       >
         {children}
       </h4>

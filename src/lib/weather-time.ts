@@ -71,3 +71,7 @@ export const getMidTermBaseTime = () => {
 
   return { baseDate, baseTime };
 };
+
+export function isNightTime(): boolean {
+  return new Date().getHours() < 6 || new Date().getHours() >= 18;
+}

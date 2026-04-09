@@ -1,3 +1,4 @@
+import { isNightTime } from '@/lib/weather-time';
 import { RAIN_TYPES, SKY_STATES } from '@/types/weather';
 
 export function getWeatherTheme({
@@ -22,7 +23,7 @@ export function getWeatherTheme({
       return 'bg-gradient-to-br from-[#64748B] to-[#334155]';
     case '맑음':
     default: {
-      const isNight = new Date().getHours() < 6 || new Date().getHours() >= 18;
+      const isNight = isNightTime();
       if (isNight) return 'bg-gradient-to-br from-[#1E1B4B] to-[#312E81]';
       else return 'bg-gradient-to-br from-[#0EA5E9] to-[#2563EB]';
     }

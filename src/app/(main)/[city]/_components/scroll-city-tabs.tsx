@@ -31,7 +31,7 @@ export default function ScrollCityTabs(props: Props) {
             onClick={() => handleClick(city)}
             variant={activeTab === city ? 'customDefault' : 'white'}
             size={'lg'}
-            className={`px-5 font-bold rounded-full`}
+            className={`px-4 md:px-5 font-bold rounded-full text-xs md:text-md`}
           >
             {REGIONS[city].name}
           </Button>

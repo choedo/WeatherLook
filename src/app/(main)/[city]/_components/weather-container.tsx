@@ -36,7 +36,7 @@ export default function WeatherContainer({ region }: Props) {
         extract={
           <Link
             href={`/${path}/weekly`}
-            className={'text-(--azure-sky-600) text-sm font-bold'}
+            className={'text-(--azure-sky-700) text-xs md:text-sm font-bold'}
           >
             주간
           </Link>

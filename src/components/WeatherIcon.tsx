@@ -1,3 +1,4 @@
+import { isNightTime } from '@/lib/weather-time';
 import { RAIN_TYPES, SKY_STATES } from '@/types/weather';
 import {
   CloudHailIcon,
@@ -6,6 +7,7 @@ import {
   CloudSnowIcon,
   CloudSunRainIcon,
   CloudyIcon,
+  MoonIcon,
   SunDimIcon,
 } from 'lucide-react';
 
@@ -18,6 +20,7 @@ interface Props {
   fill?: string;
   strokeWidth?: number;
   colorFull?: boolean;
+  className?: string;
 }
 
 export default function WeatherIcon(props: Props) {
@@ -26,13 +29,25 @@ export default function WeatherIcon(props: Props) {
   const weatherIcons = (t: WeatherIconType) => {
     switch (t) {
       case '맑음':
-      case '없음':
-        return (
-          <SunDimIcon
-            {...(colorFull ? { fill: '#FBBF24', color: '#FBBF24' } : {})}
-            {...iconProps}
-          />
-        );
+      case '없음': {
+        const isNight = isNightTime();
+
+        if (isNight)
+          return (
+            <MoonIcon
+              {...(colorFull ? { fill: '#FBBF24', color: '#FBBF24' } : {})}
+              {...iconProps}
+            />
+          );
+        else
+          return (
+            <SunDimIcon
+              {...(colorFull ? { fill: '#FBBF24', color: '#FBBF24' } : {})}
+              {...iconProps}
+            />
+          );
+      }
+
       case '구름많음':
         return (
           <CloudIcon

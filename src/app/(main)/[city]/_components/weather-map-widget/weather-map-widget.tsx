@@ -30,7 +30,7 @@ export default function WeatherMapWidget() {
   return (
     <div
       className={
-        'rounded-2xl shadow-xl aspect-video w-full overflow-hidden relative'
+        'rounded-2xl shadow-xl aspect-video w-full overflow-hidden relative hidden md:block'
       }
     >
       <WeatherMap lat={lat} lng={lng} />

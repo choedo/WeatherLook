@@ -44,13 +44,23 @@ export default function RecommendActivityWidget({
         'flex flex-col gap-2 bg-(--golden-amber-400) p-5 rounded-2xl items-start shadow-xl'
       }
     >
-      <div className={'p-2 rounded-full bg-[#FFDF9F] mb-2'}>
-        <TreeDeciduousIcon color={'#402D00'} />
+      <div
+        className={
+          'flex flex-row md:flex-col items-center md:items-start gap-2'
+        }
+      >
+        <div className={'p-2 rounded-full bg-[#FFDF9F] mb-2'}>
+          <TreeDeciduousIcon color={'#402D00'} />
+        </div>
+        <h4
+          className={
+            'text-lg lg:text-xl font-extrabold text-[#402D00] break-keep'
+          }
+        >
+          {recommendActivity.title}
+        </h4>
       </div>
-      <h4 className={'text-xl font-extrabold text-[#402D00]'}>
-        {recommendActivity.title}
-      </h4>
-      <Pre className={'text-sm text-[#402D00]'}>
+      <Pre className={'text-sm text-[#402D00] break-keep'}>
         {recommendActivity.content}
       </Pre>
     </div>

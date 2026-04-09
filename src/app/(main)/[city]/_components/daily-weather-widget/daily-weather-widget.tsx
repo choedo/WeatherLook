@@ -39,10 +39,10 @@ export default function DailyWeatherWidget({ nx, ny, city }: Props) {
           return (
             <div
               key={`weather-${weather.time}`}
-              className={`flex flex-col items-center justify-center gap-3 py-4 px-6 ${isNow ? 'bg-(--azure-sky-700)' : 'bg-white'} rounded-full text-center`}
+              className={`flex flex-col items-center justify-center gap-3 py-4 px-6 ${isNow ? 'bg-white' : 'bg-(--azure-sky-600)/10'} rounded-full text-center`}
             >
               <p
-                className={`text-sm font-medium ${isNow ? 'text-white/80' : 'text-muted-foreground'}`}
+                className={`text-xs md:text-sm font-medium ${isNow ? 'text-(--deep-text-sky)' : 'text-muted-foreground'}`}
               >
                 {weather.time}
               </p>
@@ -50,7 +50,7 @@ export default function DailyWeatherWidget({ nx, ny, city }: Props) {
                 <WeatherIcon type={weather.rainType} colorFull />
               </div>
               <h6
-                className={`text-lg font-bold ${isNow ? 'text-white' : 'text-(--azure-sky-700)'}`}
+                className={`text-sm md:text-lg font-bold ${isNow ? 'text-(--deep-text-sky)' : 'text-muted-foreground'}`}
               >
                 {weather.temp}
                 {WEATHER_CATEGORIES['T1H']['unit']}

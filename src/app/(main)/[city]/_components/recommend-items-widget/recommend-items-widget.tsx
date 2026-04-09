@@ -40,7 +40,7 @@ export default function RecommendItemsWidget({
   return (
     <div className={'flex flex-col gap-4 p-5 rounded-2xl  shadow-xl bg-white'}>
       <div className={'flex gap-2 items-center'}>
-        <ListChecksIcon className={'text-[#294967]'} size={24} />
+        <ListChecksIcon className={'text-[#294967] w-4 h-4 md:w-6 md:h-6'} />
         <h4 className={'font-bold text-[#294967]'}>오늘의 추천 아이템</h4>
       </div>
       <ul className={'flex flex-col gap-4'}>
@@ -50,7 +50,7 @@ export default function RecommendItemsWidget({
             <li
               key={item}
               className={
-                'rounded-full p-3 flex gap-4 items-center bg-[#F0F9FF]'
+                'rounded-full p-3 flex gap-4 items-center bg-(--azure-sky-600)/10'
               }
             >
               <div className={'rounded-full p-2 bg-[#FFEFD4]'}>{icon}</div>
